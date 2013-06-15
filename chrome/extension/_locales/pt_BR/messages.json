@@ -1,0 +1,30 @@
+{
+   "ext_description": {
+      "description": "Description of the extension",
+      "message": "Gerador de senhas a partir do endere\u00E7o do site combinado com uma chave privada."
+   },
+   "icon_tooltip": {
+      "description": "Tooltip of the icon",
+      "message": "Inserir nova senha no formul\u00E1rio da p\u00E1gina"
+   },
+   "label_button": {
+      "description": "Button to fill in the form on the page with the new password",
+      "message": "Formul\u00E1rio"
+   },
+   "label_field_1": {
+      "description": "Field for the private password",
+      "message": "Senha privada"
+   },
+   "label_field_2": {
+      "description": "Field to double check the private password",
+      "message": "Double Check"
+   },
+   "label_host": {
+      "description": "Field with information about the current domain",
+      "message": "Dom\u00EDnio"
+   },
+   "label_key": {
+      "description": "Field for new password",
+      "message": "Nova senha"
+   }
+}

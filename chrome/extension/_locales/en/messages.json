@@ -1,0 +1,30 @@
+{
+   "ext_description": {
+      "description": "Description of the extension",
+      "message": "Password generator from the domain site combined with a private key."
+   },
+   "icon_tooltip": {
+      "description": "Tooltip of the icon",
+      "message": "Insert key in the password fields"
+   },
+   "label_button": {
+      "description": "Button to fill in the form on the page with the new password",
+      "message": "Form"
+   },
+   "label_field_1": {
+      "description": "Field for the private password",
+      "message": "Keypass"
+   },
+   "label_field_2": {
+      "description": "Field to double check the private password",
+      "message": "Double Check"
+   },
+   "label_host": {
+      "description": "Field with information about the current domain",
+      "message": "Hostname"
+   },
+   "label_key": {
+      "description": "Field for new password",
+      "message": "New Key"
+   }
+}
