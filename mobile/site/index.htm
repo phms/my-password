@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Keypass 4 All</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style type="text/css">
+		h1 {text-shadow: 0 -1px 1px #777;}
+		h1 img, h1 img:hover {height:16px; width:16px; vertical-align:-3px; margin:0px 7px}
+	</style>
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+
+	<script>
+		$(document).delegate("#page", "pageinit", function() {
+			$('#field_key').textinput('disable');
+		});
+	</script>
+
+</head>
+<body data-role="page" id="page">
+	<div data-role="header">
+		<h1><img src="icons/icon16.png" alt="icon" border="0" />Keypass 4 All</h1>
+	</div>
+
+	<div data-role="content">
+		<ul data-role="listview" data-inset="true" >
+			<li data-role="fieldcontain">
+				<label for="field_host">Hostname:</label>
+				<input type="url" name="field_host" id="field_host" value="" />
+			</li>
+
+			<li data-role="fieldcontain">
+				<label for="field_1">Keypass:</label>
+				<input type="password" name="field_1" id="field_1" value="" />
+			</li>
+
+			<li data-role="fieldcontain">
+				<label for="field_2">Double Check:</label>
+				<input type="password" name="field_2" id="field_2" value="" />
+			</li>
+
+			<li data-role="fieldcontain">
+				<label for="field_key">New Key:</label>
+				<input type="text" name="field_key" id="field_key" value="" />
+			</li>
+
+			<li>
+				<div data-role="controlgroup" data-type="horizontal">
+					<a href="index.html" data-role="button" data-inline="true" data-icon="check" data-theme="b">Get Hash</a>
+					<a href="index.html" data-role="button" data-inline="true" data-icon="plus">Copy Hash</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div data-role="footer">
+		<h6>2012 | <a href="http://phms.com.br/keypass4all/" target="_blanck" title="Go to Keypass 4 All Website">phms.com.br/keypass4all</a></h6>
+	</div>
+</body>
+</html>
