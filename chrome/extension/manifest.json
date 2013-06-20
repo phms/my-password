@@ -1,19 +1,36 @@
 {
-   "browser_action": {
-      "default_icon": "icons/icon.png",
-      "default_title": "__MSG_icon_tooltip__",
-      "popup": "popup.html"
-   },
-   "default_locale": "en",
-   "description": "__MSG_ext_description__",
-   "icons": {
-      "128": "icons/icon128.png",
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png"
-   },
-   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDEToStAI4XBkwdW27xwWhosOHQi3CLXJjak6sYEyDK7w16YCczqGiTRmDY/KmAo0ZPrfJjPplRJC7QKi6rgXcgOQa4OwdW3naTkShQeaXcl+TMhxbB80E8VF9Ry8iCX+ApxF2NYfUMKhBkdTgGAv2T5Qjbf4hsF/liA0VPGqjERwIDAQAB",
-   "name": "Keypass 4 All",
-   "permissions": [ "tabs", "http://*/*", "https://*/*" ],
-   "update_url": "http://clients2.google.com/service/update2/crx",
-   "version": "1.12"
+	"name" : "My Password",
+
+	"version" : "1.13",
+
+	"manifest_version": 2,
+
+	"description" : "__MSG_ext_description__",
+
+	"default_locale" : "en",
+	
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+
+	"icons" : {
+		"16" : "icons/icon16.png",
+		"48" : "icons/icon48.png",
+		"128": "icons/icon128.png"
+	},
+
+	"permissions" : [
+		"tabs",
+		"http://*/*",
+		"https://*/*"
+	],
+
+	"browser_action": {
+		"default_title" : "__MSG_icon_tooltip__",
+		"default_icon" : "icons/icon.png",
+		"default_popup" : "popup.html"
+	},
+	
+	"content_security_policy": "script-src 'self'; object-src 'self'"
 }

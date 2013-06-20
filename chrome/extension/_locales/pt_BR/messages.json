@@ -1,30 +1,36 @@
 {
-   "ext_description": {
-      "description": "Description of the extension",
-      "message": "Gerador de senhas a partir do endere\u00E7o do site combinado com uma chave privada."
-   },
-   "icon_tooltip": {
-      "description": "Tooltip of the icon",
-      "message": "Inserir nova senha no formul\u00E1rio da p\u00E1gina"
-   },
-   "label_button": {
-      "description": "Button to fill in the form on the page with the new password",
-      "message": "Formul\u00E1rio"
-   },
-   "label_field_1": {
-      "description": "Field for the private password",
-      "message": "Senha privada"
-   },
-   "label_field_2": {
-      "description": "Field to double check the private password",
-      "message": "Double Check"
-   },
-   "label_host": {
-      "description": "Field with information about the current domain",
-      "message": "Dom\u00EDnio"
-   },
-   "label_key": {
-      "description": "Field for new password",
-      "message": "Nova senha"
-   }
+	"ext_description" : {
+		"message" : "Gerador de senhas a partir do endereço do site combinado com uma chave privada.",
+		"description" : "Description of the extension"
+	},
+
+	"icon_tooltip" : {
+		"message" : "Inserir nova senha no formulário da página",
+		"description" : "Tooltip of the icon"
+	},
+	
+	"label_host" : {
+		"message" : "Domínio",
+		"description" : "Field with information about the current domain"
+	},
+	
+	"label_field_1" : {
+		"message" : "Senha privada",
+		"description" : "Field for the private password"
+	},
+	
+	"label_field_2" : {
+		"message" : "Double Check",
+		"description" : "Field to double check the private password"
+	},
+	
+	"label_key" : {
+		"message" : "Nova senha",
+		"description" : "Field for new password"
+	},
+	
+	"label_button" : {
+		"message" : "Formulário",
+		"description" : "Button to fill in the form on the page with the new password"
+	}
 }

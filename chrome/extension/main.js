@@ -36,11 +36,11 @@ var keypass4all = {
 	},
 
 	encrypt: function (str) {
-		var pos, number, upper, lower, md5 = MD5(str);
+		var pos, number, upper, lower, host = this.get_host(), md5 = MD5(str);
 
 		// DEBUG
-		console.log("original: ", str);
-		console.log("encrypt: ", md5);
+		// console.log("original: ", str);
+		// console.log("encrypt: ", md5);
 
 		if (!md5) {
 			console.error("Invalid MD5 return.");
@@ -65,11 +65,18 @@ var keypass4all = {
 		md5 = String(md5).substr(0, 10) + number + lower;
 		
 		md5 = md5.split("");
-		md5[pos] = "!@#$%&*{}:".charAt(pos);
+		
+		if (host != "login.xmarks.com" || host != "stumbleupon.com") {
+			md5[pos] = "!@#$%&*{}:".charAt(pos);
+		} else {
+			md5[pos] = "";
+		}
+		
 		md5[pos-1] = upper;
 		md5 = md5.join("");
-		
-		console.log("key: ", md5);
+
+		// DEBUG
+		// console.log("key: ", md5);
 		
 		return md5;
 	},

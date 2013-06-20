@@ -1,16 +1,17 @@
 /*!
- * keypass4all
+ * My Password
  * http://phms.com.br/keypass4all/
  *
  * Developed by @fabiophms
- * 2011
+ * 2011-2013
  */
-
+ 
 function MENU() {
 	this.host = document.getElementById("field_host");
 	this.key = document.getElementById('field_key');
 	this.field1 = document.getElementById("field_1");
 	this.field2 = document.getElementById("field_2");
+	this.img = document.getElementById("img_key");
 	this.enableDoubleCheck = false;
 	
 	this.changeHostname = function(){
@@ -27,14 +28,14 @@ function MENU() {
 		this.key.type = type;
 	};
 	
-	this.toggleKeyFieldType = function(img){
+	this.toggleKeyFieldType = function(){
 		if (String(this.key.type).toLowerCase() === "text") {
 			this.key.type = "password";
-			img.src = "img/font.png";
+			this.img.src = "img/font.png";
 		} else {
 			this.key.type = "text";
 			this.key.select();
-			img.src = "img/asterisk_yellow.png";
+			this.img.src = "img/asterisk_yellow.png";
 		}
 		// Fix to IE - http://www.codingforums.com/showthread.php?t=107073
 		// function replaceT(obj){var newO=document.createElement('input');newO.setAttribute('type','password');newO.setAttribute('name',obj.getAttribute('name'));obj.parentNode.replaceChild(newO,obj);}
@@ -62,6 +63,7 @@ function MENU() {
 	};
 	
 	this.generateKey = function() {
+	
 		var f1 = this.field1.value,
 			f2 = this.field2.value,
 			msg = document.getElementById("tr_msg");
@@ -86,12 +88,14 @@ function MENU() {
 	};
 }
 
-if (typeof chrome !== "undefined") {
-	chrome.tabs.getSelected(null, function (tab) {
-		var url = document.createElement("a");
+if (chrome && chrome.runtime) {
+	chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+		var tab = response,
+			url = document.createElement("a");
+			
 		url.setAttribute("href", tab.url);
 		document.getElementById("field_host").value = String(url.host).replace(/^ww\w*\./, "");
-	
+
 		if (tab.favIconUrl) {
 			document.getElementById("img_host").setAttribute("src", tab.favIconUrl);
 		}
@@ -102,7 +106,24 @@ if (typeof chrome !== "undefined") {
 		document.getElementById("label_key").textContent = chrome.i18n.getMessage("label_key") + ":";
 		document.getElementById("label_button").textContent = chrome.i18n.getMessage("label_button");
 		
-		window.menu = new MENU();
+		//window.menu = new MENU();
 		menu.field1.focus();
+
+		return true;
 	});
 }
+
+function addEvent(id, event, func){
+	document.getElementById(id).addEventListener(event, function(){menu[func]();});
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+	window.menu = new MENU();
+
+	addEvent('img_host',	'click',  'changeHostname');
+	addEvent('img_field_1',	'click',  'toggleDoubleCheck');
+	addEvent('img_key',		'click',  'toggleKeyFieldType');
+	addEvent('field_2',		'change', 'checkKeypass');
+	addEvent('button',		'click',  'generateKey');
+	addEvent('img_button',	'click',  'copyKeyToClipboard');
+});

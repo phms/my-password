@@ -3,26 +3,27 @@
 <head>
 	<!--
 	/*!
-	* keypass4all
-	* http://phms.com.br/keypass4all/
-	*
-	* Developed by @fabiophms
-	* 2011
-	*/
+	 * My Password
+	 * http://phms.com.br/keypass4all/
+	 *
+	 * Developed by @fabiophms
+	 * 2011-2013
+	 */
 	-->
 	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-	<title>Keypass 4 All</title>
-	<link rel="stylesheet" type="text/css" href="/popup.css" />
-	<script type="text/javascript" src="/lib/webtoolkit.md5.js"></script>
-	<script type="text/javascript" src="/lib/keypass4all.js"></script> 
-	<script type="text/javascript" src="/popup.js"></script> 
+	<title>My Password</title>
+	<link rel="stylesheet" type="text/css" href="popup.css" />
+	<script type="text/javascript" src="lib/webtoolkit.md5.js"></script>
+	<script type="text/javascript" src="lib/keypass4all.js"></script> 
+	<script type="text/javascript" src="popup.js"></script> 
 </head>
 <body>
 	<table>
 		<tr>
 			<td colspan="3" align="center">
 				<h1>
-					<a href="http://phms.com.br/keypass4all/?utm_source=app&utm_medium=link" target="_blanck" title="Go to Keypass 4 All Website"><img src="/icons/icon16.png" alt="icon" border="0" /></a>Keypass <span>4</span> All
+					<a href="http://phms.com.br/keypass4all/?utm_source=app&utm_medium=link" target="_blanck" title="Go to My Password Website"><img src="/icons/icon16.png" alt="icon" border="0" /></a>
+					<span>My </span> Password
 				</h1>
 				<hr />
 			</td>
@@ -30,27 +31,27 @@
 		<tr>
 			<td id="label_host" class="label">Hostname:</td>
 			<td><input type="text" id="field_host" size="20" readonly="readonly" class="host" /></td>
-			<td><img id="img_host" src="/img/world.png" class="menu" title="Change the domain" onclick="menu.changeHostname();" /></td>
+			<td><img id="img_host" src="/img/world.png" class="menu" title="Change the domain" /></td>
 		</tr>
 		<tr>
 			<td id="label_field_1" class="label">Keypass:</td>
 			<td><input type="password" id="field_1" size="20" /></td>
-			<td><img src="/img/shield.png" class="menu" title="Enable double check" onclick="menu.toggleDoubleCheck();" /></td>
+			<td><img id='img_field_1' src="/img/shield.png" class="menu" title="Enable double check" /></td>
 		</tr>
 		<tr id="tr_field_2" style="display:none;">
 			<td id="label_field_2" class="label doublecheck">Double Check:</td>
-			<td><input type="password" id="field_2" size="20" onchange="menu.checkKeypass();" /></td>
+			<td><input type="password" id="field_2" size="20" /></td>
 			<td><img id="img_field_2" src="/img/accept.png" class="menu" title="Result of the comparison" style="display:none;" /></td>
 		</tr>
 		<tr>
 			<td id="label_key" class="label doublecheck">New Key:</td>
 			<td><input type="password" id="field_key" size="20" readonly="readonly" /></td>
-			<td><img id="img_key" src="/img/font.png" class="menu" title="Show or hide the key" onclick="menu.toggleKeyFieldType(this);" /></td>
+			<td><img id="img_key" src="/img/font.png" class="menu" title="Show or hide the key" /></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td><button onclick="menu.generateKey();" title="Apply to the form"><img src="/img/key_go.png" /><span id="label_button">Form</span></button></td>
-			<td><img src="/img/paste_plain.png" class="menu" title="Copy key to clipboard" onclick="menu.copyKeyToClipboard();" /></td>
+			<td><button id='button' title="Apply to the form"><img src="/img/key_go.png" /><span id="label_button">Form</span></button></td>
+			<td><img id='img_button' src="/img/paste_plain.png" class="menu" title="Copy key to clipboard" /></td>
 		</tr>
 		<tr id="tr_msg" style="display:none;">
 			<td colspan="3" align="center"></td>
