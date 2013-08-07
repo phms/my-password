@@ -53,7 +53,7 @@
 		
 		td {padding: 4px;}
 		
-		.webdings { font-family: Webdings, wingdings; font-size: 20px; }
+		.unicode { font-size: 20px; padding-left: 5px; }
 	</style>
 	
 	
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded",function(){window.menu=new MENU;add
 		<tr>
 			<td colspan="3" align="center">
 				<h1>
-					<a href="http://phms.com.br/keypass4all/?utm_source=standalone&utm_medium=h1" style="font-weight: normal; text-decoration: none;" target="_blanck" title="Go to My Password Website"><span class="webdings">Ï</span></a>
+					<a href="http://phms.com.br/keypass4all/?utm_source=standalone&utm_medium=h1" style="font-weight: normal; text-decoration: none; font-size: 24px;" target="_blanck" title="Go to My Password Website">&#65404;</a>
 					<span>My </span> Password
 				</h1>
 				<hr />
@@ -113,27 +113,27 @@ document.addEventListener("DOMContentLoaded",function(){window.menu=new MENU;add
 		<tr>
 			<td id="label_host" class="label">Hostname:</td>
 			<td><input type="text" id="field_host" size="20" readonly="readonly" class="host" /></td>
-			<td><span class="menu webdings" id="img_host" title="Change the domain" />þ</span></td>
+			<td><span class="menu unicode" id="img_host" title="Change the domain" />&#9998;</span></td>
 		</tr>
 		<tr>
 			<td id="label_field_1" class="label">Keypass:</td>
 			<td><input type="password" id="field_1" size="20" /></td>
-			<td><span class="menu webdings" id='img_field_1' title="Enable double check" />d</span></td>
+			<td><span class="menu unicode" id='img_field_1' title="Enable double check" />&#10103;</span></td>
 		</tr>
 		<tr id="tr_field_2" style="display:none;">
 			<td id="label_field_2" class="label doublecheck">Double Check:</td>
 			<td><input type="password" id="field_2" size="20" /></td>
-			<td><span class="menu webdings" id="img_field_2" title="Result of the comparison" style="display:none;" />s</span></td>
+			<td><span class="menu unicode" id="img_field_2" title="Result of the comparison" style="display:none;" />&#65533;</span></td>
 		</tr>
 		<tr>
 			<td id="label_key" class="label doublecheck">New Key:</td>
 			<td><input type="text" id="field_key" size="20" /></td>
-			<td><span class="menu webdings" id="img_key" title="Show or hide the key" />l</span></td>
+			<td><span class="menu unicode" id="img_key" title="Show or hide the key" />&#10033;</span></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td><button id='button' title="Apply to the form"><span class="menu webdings">8</span><span id="label_button">Form</span></button></td>
-			<td><span class="menu webdings" id='img_button' title="Copy key to clipboard" />¥</td>
+			<td><button id='button' title="Apply to the form"><span style="font-size: 18px;">&#10153;</span> <span id="label_button">Form</span></button></td>
+			<td><span class="menu unicode" id='img_button' title="Copy key to clipboard" />&#10063;</td>
 		</tr>
 		<tr id="tr_msg" style="display:none;">
 			<td colspan="3" align="center"></td>
