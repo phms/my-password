@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!--
+	/*!
+	* My Password
+	* https://github.com/phms/my-password/
+	*
+	* Developed by @fabiophms
+	* 2011-2013
+	*/
+	-->
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	<link rel="canonical" href="http://phms.com.br/keypass4all/" />
+	<meta name='description' content='Password generator from the domain site combined with a private key.' />
+	<title>My Password</title>
+	
+	<script type="text/javascript">
+		// <![CDATA[
+		var _gaq = [['_setAccount', 'UA-17169655-1'], ['_trackPageview'], ['_trackPageLoadTime']];
+		(function() {
+			var s, ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		// ]]>
+	</script>
+	
+	
+	<style type="text/css">
+		body {line-height:1.5em;text-shadow: #ececec 0px 1px 0px;overflow:hidden;margin-top:0px;}
+
+		h1 {font-family:"trebuchet MS",'Lucida Sans Unicode',Tahoma,Arial,Sans-Serif;font-size:16px;}
+			h1 span {color:#00B;}
+			
+		img, img:hover {height:16px; width:16px; vertical-align:-3px; margin:0px 7px}
+			
+		input {border:1px solid #CCC; background-color: #EEE;}
+			input.host {background-color:#FFF;font-size:10px;min-height:22px;}
+
+		input, button {width:111px;}
+
+		hr {border-width:0px; background-color: #DDD; height: 1px;}
+
+		td, button, input {font-family:"trebuchet MS",'Lucida Sans Unicode',Tahoma,Arial,Sans-Serif; font-size:12px; white-space: nowrap;}
+			
+		.doublecheck {color: #777;}
+
+		.menu {opacity:0.5; /*-webkit-transition:all 0.4s ease-in-out;*/ cursor:pointer;}
+			.menu:hover {opacity:1;}
+
+		.label {text-align:right; min-width:90px;}
+		
+		td {padding: 4px;}
+		
+		.webdings { font-family: Webdings, wingdings; font-size: 20px; }
+	</style>
+	
+	
+	<script type="text/javascript">
+		// src="lib/webtoolkit.md5.js"
+	
+/**
+* MD5 (Message-Digest Algorithm)
+* http://www.webtoolkit.info/
+**/
+var MD5=function(string){function RotateLeft(lValue,iShiftBits){return lValue<<iShiftBits|lValue>>>32-iShiftBits}function AddUnsigned(lX,lY){var lX4,lY4,lX8,lY8,lResult;lX8=lX&2147483648;lY8=lY&2147483648;lX4=lX&1073741824;lY4=lY&1073741824;lResult=(lX&1073741823)+(lY&1073741823);if(lX4&lY4)return lResult^2147483648^lX8^lY8;if(lX4|lY4)if(lResult&1073741824)return lResult^3221225472^lX8^lY8;else return lResult^1073741824^lX8^lY8;else return lResult^lX8^lY8}function F(x,y,z){return x&y|~x&z}function G(x,
+y,z){return x&z|y&~z}function H(x,y,z){return x^y^z}function I(x,y,z){return y^(x|~z)}function FF(a,b,c,d,x,s,ac){a=AddUnsigned(a,AddUnsigned(AddUnsigned(F(b,c,d),x),ac));return AddUnsigned(RotateLeft(a,s),b)}function GG(a,b,c,d,x,s,ac){a=AddUnsigned(a,AddUnsigned(AddUnsigned(G(b,c,d),x),ac));return AddUnsigned(RotateLeft(a,s),b)}function HH(a,b,c,d,x,s,ac){a=AddUnsigned(a,AddUnsigned(AddUnsigned(H(b,c,d),x),ac));return AddUnsigned(RotateLeft(a,s),b)}function II(a,b,c,d,x,s,ac){a=AddUnsigned(a,AddUnsigned(AddUnsigned(I(b,
+c,d),x),ac));return AddUnsigned(RotateLeft(a,s),b)}function ConvertToWordArray(string){var lWordCount;var lMessageLength=string.length;var lNumberOfWords_temp1=lMessageLength+8;var lNumberOfWords_temp2=(lNumberOfWords_temp1-lNumberOfWords_temp1%64)/64;var lNumberOfWords=(lNumberOfWords_temp2+1)*16;var lWordArray=Array(lNumberOfWords-1);var lBytePosition=0;var lByteCount=0;while(lByteCount<lMessageLength){lWordCount=(lByteCount-lByteCount%4)/4;lBytePosition=lByteCount%4*8;lWordArray[lWordCount]=lWordArray[lWordCount]|
+string.charCodeAt(lByteCount)<<lBytePosition;lByteCount++}lWordCount=(lByteCount-lByteCount%4)/4;lBytePosition=lByteCount%4*8;lWordArray[lWordCount]=lWordArray[lWordCount]|128<<lBytePosition;lWordArray[lNumberOfWords-2]=lMessageLength<<3;lWordArray[lNumberOfWords-1]=lMessageLength>>>29;return lWordArray}function WordToHex(lValue){var WordToHexValue="",WordToHexValue_temp="",lByte,lCount;for(lCount=0;lCount<=3;lCount++){lByte=lValue>>>lCount*8&255;WordToHexValue_temp="0"+lByte.toString(16);WordToHexValue=
+WordToHexValue+WordToHexValue_temp.substr(WordToHexValue_temp.length-2,2)}return WordToHexValue}function Utf8Encode(string){string=string.replace(/\r\n/g,"\n");var utftext="";for(var n=0;n<string.length;n++){var c=string.charCodeAt(n);if(c<128)utftext+=String.fromCharCode(c);else if(c>127&&c<2048){utftext+=String.fromCharCode(c>>6|192);utftext+=String.fromCharCode(c&63|128)}else{utftext+=String.fromCharCode(c>>12|224);utftext+=String.fromCharCode(c>>6&63|128);utftext+=String.fromCharCode(c&63|128)}}return utftext}
+var x=Array();var k,AA,BB,CC,DD,a,b,c,d;var S11=7,S12=12,S13=17,S14=22;var S21=5,S22=9,S23=14,S24=20;var S31=4,S32=11,S33=16,S34=23;var S41=6,S42=10,S43=15,S44=21;string=Utf8Encode(string);x=ConvertToWordArray(string);a=1732584193;b=4023233417;c=2562383102;d=271733878;for(k=0;k<x.length;k+=16){AA=a;BB=b;CC=c;DD=d;a=FF(a,b,c,d,x[k+0],S11,3614090360);d=FF(d,a,b,c,x[k+1],S12,3905402710);c=FF(c,d,a,b,x[k+2],S13,606105819);b=FF(b,c,d,a,x[k+3],S14,3250441966);a=FF(a,b,c,d,x[k+4],S11,4118548399);d=FF(d,
+a,b,c,x[k+5],S12,1200080426);c=FF(c,d,a,b,x[k+6],S13,2821735955);b=FF(b,c,d,a,x[k+7],S14,4249261313);a=FF(a,b,c,d,x[k+8],S11,1770035416);d=FF(d,a,b,c,x[k+9],S12,2336552879);c=FF(c,d,a,b,x[k+10],S13,4294925233);b=FF(b,c,d,a,x[k+11],S14,2304563134);a=FF(a,b,c,d,x[k+12],S11,1804603682);d=FF(d,a,b,c,x[k+13],S12,4254626195);c=FF(c,d,a,b,x[k+14],S13,2792965006);b=FF(b,c,d,a,x[k+15],S14,1236535329);a=GG(a,b,c,d,x[k+1],S21,4129170786);d=GG(d,a,b,c,x[k+6],S22,3225465664);c=GG(c,d,a,b,x[k+11],S23,643717713);
+b=GG(b,c,d,a,x[k+0],S24,3921069994);a=GG(a,b,c,d,x[k+5],S21,3593408605);d=GG(d,a,b,c,x[k+10],S22,38016083);c=GG(c,d,a,b,x[k+15],S23,3634488961);b=GG(b,c,d,a,x[k+4],S24,3889429448);a=GG(a,b,c,d,x[k+9],S21,568446438);d=GG(d,a,b,c,x[k+14],S22,3275163606);c=GG(c,d,a,b,x[k+3],S23,4107603335);b=GG(b,c,d,a,x[k+8],S24,1163531501);a=GG(a,b,c,d,x[k+13],S21,2850285829);d=GG(d,a,b,c,x[k+2],S22,4243563512);c=GG(c,d,a,b,x[k+7],S23,1735328473);b=GG(b,c,d,a,x[k+12],S24,2368359562);a=HH(a,b,c,d,x[k+5],S31,4294588738);
+d=HH(d,a,b,c,x[k+8],S32,2272392833);c=HH(c,d,a,b,x[k+11],S33,1839030562);b=HH(b,c,d,a,x[k+14],S34,4259657740);a=HH(a,b,c,d,x[k+1],S31,2763975236);d=HH(d,a,b,c,x[k+4],S32,1272893353);c=HH(c,d,a,b,x[k+7],S33,4139469664);b=HH(b,c,d,a,x[k+10],S34,3200236656);a=HH(a,b,c,d,x[k+13],S31,681279174);d=HH(d,a,b,c,x[k+0],S32,3936430074);c=HH(c,d,a,b,x[k+3],S33,3572445317);b=HH(b,c,d,a,x[k+6],S34,76029189);a=HH(a,b,c,d,x[k+9],S31,3654602809);d=HH(d,a,b,c,x[k+12],S32,3873151461);c=HH(c,d,a,b,x[k+15],S33,530742520);
+b=HH(b,c,d,a,x[k+2],S34,3299628645);a=II(a,b,c,d,x[k+0],S41,4096336452);d=II(d,a,b,c,x[k+7],S42,1126891415);c=II(c,d,a,b,x[k+14],S43,2878612391);b=II(b,c,d,a,x[k+5],S44,4237533241);a=II(a,b,c,d,x[k+12],S41,1700485571);d=II(d,a,b,c,x[k+3],S42,2399980690);c=II(c,d,a,b,x[k+10],S43,4293915773);b=II(b,c,d,a,x[k+1],S44,2240044497);a=II(a,b,c,d,x[k+8],S41,1873313359);d=II(d,a,b,c,x[k+15],S42,4264355552);c=II(c,d,a,b,x[k+6],S43,2734768916);b=II(b,c,d,a,x[k+13],S44,1309151649);a=II(a,b,c,d,x[k+4],S41,4149444226);
+d=II(d,a,b,c,x[k+11],S42,3174756917);c=II(c,d,a,b,x[k+2],S43,718787259);b=II(b,c,d,a,x[k+9],S44,3951481745);a=AddUnsigned(a,AA);b=AddUnsigned(b,BB);c=AddUnsigned(c,CC);d=AddUnsigned(d,DD)}var temp=WordToHex(a)+WordToHex(b)+WordToHex(c)+WordToHex(d);return temp.toLowerCase()};
+
+	</script>
+	
+	
+	<script type="text/javascript">
+		// lib/keypass4all.js
+
+var keypass4all={encrypt_key:null,set:function(host,private_key){if(this.is_string(host)&&this.is_string(private_key))this.encrypt_key=this.encrypt(host+private_key);else console.error("keypass4all: Invalid hostname or private password format.")},get:function(){return this.encrypt_key},is_string:function(s){if(s&&typeof s==="string")return true;return false},encrypt:function(str){var pos,number,upper,lower,md5=MD5(str);if(!md5){console.error("keypass4all: Invalid MD5 return.");return""}pos=Number(String(md5.match(/\d+/g).join("")).substring(0,
+10));if(isNaN(pos)){number=7;pos=3}else{number=pos%10;pos=pos%8}upper=md5.match(/[a-z]/g);if(upper.length===0){lower="w";upper="H"}else{lower=upper[pos%upper.length].toLowerCase();upper=upper[upper.length-1].toUpperCase()}md5=String(md5).substr(0,8)+number+lower;md5=md5.split("");md5[pos]="!@#$%&{}".charAt(pos);md5[Math.abs(pos-3)]=upper;md5=md5.join("");return md5}};
+	
+	</script> 
+	
+	
+	<script type="text/javascript">
+		// popup.js
+	
+function MENU(){this.host=document.getElementById("field_host");this.key=document.getElementById("field_key");this.field1=document.getElementById("field_1");this.field2=document.getElementById("field_2");this.img=document.getElementById("img_key");this.enableDoubleCheck=false;this.changeHostname=function(){this.host.className="";this.host.readOnly=false;this.host.focus()};this.copyKeyToClipboard=function(){var type=this.key.type;this.key.type="text";this.key.select();document.execCommand("Copy");
+this.key.type=type};this.toggleKeyFieldType=function(){if(String(this.key.type).toLowerCase()==="text"){this.key.type="password";this.img.src="img/font.png"}else{this.key.type="text";this.key.select();this.img.src="img/asterisk_yellow.png"}};this.toggleDoubleCheck=function(){var tr=document.getElementById("tr_field_2");if(!this.enableDoubleCheck){tr.style.display="table-row";this.key.value="";this.enableDoubleCheck=true}else{tr.style.display="none";this.field2.value="";this.field2.style.display="none";
+this.enableDoubleCheck=false}};this.checkKeypass=function(){var img=document.getElementById("img_field_2");img.src=this.field1.value!==this.field2.value?"img/stop.png":"img/accept.png";img.style.display="inline"};this.generateKey=function(){var f1=this.field1.value,f2=this.field2.value,msg=document.getElementById("tr_msg");msg.style.display="none";if(f1&&this.enableDoubleCheck&&f1!==f2){msg.getElementsByTagName("td")[0].textContent=chrome.i18n.getMessage("alert_wrong_key_check");msg.style.display=
+"table-row";this.field2.value=""}else if(f1||this.enableDoubleCheck&&f1===f2){keypass4all.set(this.host.value,f1);this.key.value=keypass4all.get();if(chrome&&chrome.runtime){chrome.tabs.executeScript(null,{code:"var keypass4all = '"+keypass4all.get()+"';",allFrames:true});chrome.tabs.executeScript(null,{file:"/tabs.js",allFrames:true})}}else if(!f1)window.close()}}function addEvent(id,event,func){document.getElementById(id).addEventListener(event,function(){menu[func]()})}
+document.addEventListener("DOMContentLoaded",function(){window.menu=new MENU;addEvent("img_host","click","changeHostname");addEvent("img_field_1","click","toggleDoubleCheck");addEvent("img_key","click","toggleKeyFieldType");addEvent("field_2","change","checkKeypass");addEvent("button","click","generateKey");addEvent("img_button","click","copyKeyToClipboard")});
+	
+	</script>
+</head>
+<body>
+	<table align="center">
+		<tr>
+			<td colspan="3" align="center">
+				<h1>
+					<a href="http://phms.com.br/keypass4all/?utm_source=standalone&utm_medium=h1" style="font-weight: normal; text-decoration: none;" target="_blanck" title="Go to My Password Website"><span class="webdings">Ï</span></a>
+					<span>My </span> Password
+				</h1>
+				<hr />
+			</td>
+		</tr>
+		<tr>
+			<td id="label_host" class="label">Hostname:</td>
+			<td><input type="text" id="field_host" size="20" readonly="readonly" class="host" /></td>
+			<td><span class="menu webdings" id="img_host" title="Change the domain" />þ</span></td>
+		</tr>
+		<tr>
+			<td id="label_field_1" class="label">Keypass:</td>
+			<td><input type="password" id="field_1" size="20" /></td>
+			<td><span class="menu webdings" id='img_field_1' title="Enable double check" />d</span></td>
+		</tr>
+		<tr id="tr_field_2" style="display:none;">
+			<td id="label_field_2" class="label doublecheck">Double Check:</td>
+			<td><input type="password" id="field_2" size="20" /></td>
+			<td><span class="menu webdings" id="img_field_2" title="Result of the comparison" style="display:none;" />s</span></td>
+		</tr>
+		<tr>
+			<td id="label_key" class="label doublecheck">New Key:</td>
+			<td><input type="text" id="field_key" size="20" /></td>
+			<td><span class="menu webdings" id="img_key" title="Show or hide the key" />l</span></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><button id='button' title="Apply to the form"><span class="menu webdings">8</span><span id="label_button">Form</span></button></td>
+			<td><span class="menu webdings" id='img_button' title="Copy key to clipboard" />¥</td>
+		</tr>
+		<tr id="tr_msg" style="display:none;">
+			<td colspan="3" align="center"></td>
+		</tr>
+		<tr><td colspan="3" align="right" style="color:#CCC;">&nbsp;<br />https://github.com/phms/my-password/</td></tr>
+	</table>
+	<script type="text/javascript">
+		var menu = new MENU();
+		menu.changeHostname();
+	</script>
+</body>
+</html>
