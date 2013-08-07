@@ -78,7 +78,7 @@ function MENU() {
 			keypass4all.set(this.host.value, f1);
 			this.key.value = keypass4all.get();
 
-			if(typeof chrome !== "undefined") {
+			if(chrome && chrome.runtime) {
 				chrome.tabs.executeScript(null, {
 					code: "var keypass4all = '" + keypass4all.get() + "';",
 					allFrames: true
