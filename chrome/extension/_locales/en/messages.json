@@ -1,36 +1,41 @@
 {
-	"ext_description" : {
-		"message" : "Password generator from the domain site combined with a private key.",
-		"description" : "Description of the extension"
+	"ext_description": {
+		"message": "Password generator from the domain site combined with a private key.",
+		"description": "Description of the extension"
 	},
 
-	"icon_tooltip" : {
-		"message" : "Insert key in the password fields",
-		"description" : "Tooltip of the icon"
+	"icon_tooltip": {
+		"message": "Insert key in the password fields",
+		"description": "Tooltip of the icon"
 	},
-	
-	"label_host" : {
-		"message" : "Hostname",
-		"description" : "Field with information about the current domain"
+
+	"label_host": {
+		"message": "Hostname",
+		"description": "Field with information about the current domain"
 	},
-	
-	"label_field_1" : {
-		"message" : "Keypass",
-		"description" : "Field for the private password"
+
+	"label_field_1": {
+		"message": "Keypass",
+		"description": "Field for the private password"
 	},
-	
-	"label_field_2" : {
-		"message" : "Double Check",
-		"description" : "Field to double check the private password"
+
+	"label_field_2": {
+		"message": "Double Check",
+		"description": "Field to double check the private password"
 	},
-	
-	"label_key" : {
-		"message" : "New Key",
-		"description" : "Field for new password"
+
+	"label_key": {
+		"message": "New Key",
+		"description": "Field for new password"
 	},
-	
-	"label_button" : {
-		"message" : "Form",
-		"description" : "Button to fill in the form on the page with the new password"
+
+	"label_button": {
+		"message": "Form",
+		"description": "Button to fill in the form on the page with the new password"
+	},
+
+	"wrong_key_check": {
+		"message": "Passwords do not match",
+		"description": "Passwords do not match"
 	}
 }

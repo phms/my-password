@@ -1,12 +1,12 @@
 /*!
- * keypass4all
- * http://phms.com.br/keypass4all/
+ * My Password
+ * http://phms.com.br/mypass/
  *
  * Developed by @fabiophms
- * 2011
+ * 2011-2013
  */
 
-function keypass4all_put(encrypt_key) {
+(function (encrypt_key) {
 	if (encrypt_key && encrypt_key.length >= 10) {
 		// console.log("encrypt_key:", encrypt_key);
 		var i, inputs = document.getElementsByTagName("input");
@@ -16,8 +16,6 @@ function keypass4all_put(encrypt_key) {
 			}
 		}
 	} else {
-		console.error("keypass4all: Encrypt key is null. >> " + encrypt_key);
+		console.error("My Password: Encrypt key is null. >> " + encrypt_key);
 	}
-}
-
-keypass4all_put(keypass4all);
+})(keypass4all);

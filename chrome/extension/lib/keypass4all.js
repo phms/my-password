@@ -1,9 +1,9 @@
 /*!
- * keypass4all
- * http://phms.com.br/keypass4all/
+ * My Password
+ * http://phms.com.br/mypass/
  *
  * Developed by @fabiophms
- * 2011
+ * 2011-2013
  */
 
 var keypass4all = {

@@ -32,5 +32,10 @@
 	"label_button" : {
 		"message" : "Formulário",
 		"description" : "Button to fill in the form on the page with the new password"
+	},
+
+	"wrong_key_check": {
+		"message": "As senhas não correspondem",
+		"description": "Passwords do not match"
 	}
 }
