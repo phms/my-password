@@ -6,11 +6,11 @@
  * 2011-2013
  */
 
-var runtimeOrExtension = chrome.runtime && chrome.runtime.sendMessage ? 'runtime' : 'extension';
+var runtimeOrExtension = (chrome.runtime && chrome.runtime.sendMessage ? 'runtime' : 'extension');
 
 chrome[runtimeOrExtension].onMessage.addListener(function (request, sender, sendResponse) {
 	chrome.tabs.getSelected(null, function (tab) {
-		console.log(tab.url);
+		//console.log(tab.url);
 		if(request.greeting == "start") {
 			sendResponse(tab);
 		}

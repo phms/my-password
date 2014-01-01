@@ -3,7 +3,7 @@
 
 	"name" : "My Password",
 	"short_name": "My Password",
-	"version" : "1.14",
+	"version" : "1.15",
 	"author": "@fabiophms",
 
 	"description" : "__MSG_ext_description__",

@@ -1,6 +1,6 @@
 /*!
  * My Password
- * http://phms.com.br/keypass4all/
+ * http://phms.com.br/mypass/
  *
  * Developed by @fabiophms
  * 2011-2013
@@ -8,25 +8,24 @@
 
 "use strict";
 
-var VERSION = "1.14",
+var VERSION = "1.15",
 	ID = (Math.random() * (new Date()).getTime());
 
-function log(tag) {
-	tag = encodeURIComponent(tag);
+var track = {
+	send: function(src) {
+		(new Image()).src = ("https://google-analytics.com/collect?v=1&z=0&tid=UA-17169655-9&an=My%20Password&av=" + VERSION + "&cid=" + ID + src);
+	},
 
-	var src = "&cid=" + ID;
-	src += "&tid=UA-17169655-9";
-	src += "&an=My%20Password";
-	src += "&av=" + VERSION;
-	src += "&dp=" + tag;
-	src += "&cd=" + tag;
+	log: function(tag) {
+		track.send("&t=appview&cd=" + encodeURIComponent(tag));
+	},
 
-	(new Image()).src = ("https://google-analytics.com/collect?v=1&z=0&t=pageview" + src);
-}
+	error: function(msg, fatal) {
+		track.send("&t=exception&exd=" + encodeURIComponent(msg) + (fatal ? "&exf=0" : ""));
+	}
+};
 
-
-
-log("/start");
+track.log("/start");
 
 function MENU() {
 	this.host = document.getElementById("field_host");
@@ -41,7 +40,7 @@ function MENU() {
 		this.host.readOnly = false;
 		this.host.focus();
 
-		log("/btn/changeHostname");
+		track.log("/btn/changeHostname");
 	};
 
 	this.copyKeyToClipboard = function() {
@@ -51,7 +50,7 @@ function MENU() {
 		document.execCommand("Copy");
 		this.key.type = type;
 
-		log("/btn/copyKeyToClipboard");
+		track.log("/btn/copyKeyToClipboard");
 	};
 
 	this.toggleKeyFieldType = function() {
@@ -59,13 +58,13 @@ function MENU() {
 			this.key.type = "password";
 			this.img.src = "img/font.png";
 
-			log("/btn/toggleKeyFieldType/password");
+			track.log("/btn/toggleKeyFieldType/password");
 		} else {
 			this.key.type = "text";
 			this.key.select();
 			this.img.src = "img/asterisk_yellow.png";
 
-			log("/btn/toggleKeyFieldType/text");
+			track.log("/btn/toggleKeyFieldType/text");
 		}
 		// Fix to IE - http://www.codingforums.com/showthread.php?t=107073
 		// function replaceT(obj){var newO=document.createElement('input');newO.setAttribute('type','password');newO.setAttribute('name',obj.getAttribute('name'));obj.parentNode.replaceChild(newO,obj);}
@@ -78,15 +77,16 @@ function MENU() {
 			this.enableDoubleCheck = true;
 			tr.style.display = "table-row";
 			this.key.value = "";
+			this.field2.focus();
 
-			log("/btn/toggleDoubleCheck/true");
+			track.log("/btn/toggleDoubleCheck/true");
 		} else {
 			this.enableDoubleCheck = false;
 			tr.style.display = "none";
 			this.field2.value = "";
 			//this.field2.style.display = "none";
 
-			log("/btn/toggleDoubleCheck/false");
+			track.log("/btn/toggleDoubleCheck/false");
 		}
 	};
 
@@ -96,7 +96,7 @@ function MENU() {
 		img.src = result ? "img/stop.png" : "img/accept.png";
 		img.style.display = "inline";
 
-		log("/alert/doubleCheckResult/" + result);
+		track.log("/alert/doubleCheckResult/" + result);
 	};
 
 	this.generateKey = function() {
@@ -107,14 +107,14 @@ function MENU() {
 
 		msg.style.display = "none";
 
-		log("/btn/generateKey");
+		track.log("/btn/generateKey");
 
 		if (f1 && this.enableDoubleCheck && f1 !== f2) {
 			(msg.getElementsByTagName("td")[0]).textContent = chrome.i18n.getMessage("wrong_key_check");
 			msg.style.display = "table-row";
 			this.field2.value = "";
 
-			log("/alert/wrongKeyCheck");
+			track.log("/alert/wrongKeyCheck");
 		} else if (f1 || (this.enableDoubleCheck && f1 === f2)) {
 			keypass4all.set(this.host.value, f1);
 			this.key.value = keypass4all.get();
@@ -129,10 +129,10 @@ function MENU() {
 					allFrames: true
 				});
 
-				log("/success");
+				track.log("/success");
 			}
 		} else if (!f1) {
-			log("/close");
+			track.log("/close");
 
 			window.close();
 		}
@@ -171,20 +171,28 @@ if (chrome && chrome.runtime) {
 
 		//window.menu = new MENU();
 
-		log("/chromeRuntime");
+		track.log("/chromeRuntime");
 
 		return true;
 	});
+} else {
+	track.error("ReferenceError: 'chrome.runtime' is not defined");
 }
 
 document.onkeydown = function(e) {
-	if (e.keyCode == 9) {
+	if (e.keyCode === 9) { //tab
 		e.preventDefault();
-		menu.toggleDoubleCheck();
+		if (document.activeElement.id === "field_1") {
+			menu.toggleDoubleCheck();
+		} else if (document.activeElement.id === "field_2") {
+			menu.checkKeypass();
+			menu.generateKey();
+		}
 	}
 
-	if (e.keyCode == 13) {
+	if (e.keyCode == 13) { //enter
 		e.preventDefault();
+		menu.checkKeypass();
 		menu.generateKey();
 	}
 };
@@ -201,5 +209,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	menu.field1.focus();
 
-	log("/load");
+	track.log("/load");
 });
