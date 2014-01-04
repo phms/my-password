@@ -1,10 +1,10 @@
 /*!
-* keypass4all
-* http://phms.com.br/keypass4all/
-*
-* Developed by @fabiophms
-* 2011
-*/
+ * My Password
+ * http://phms.com.br/mypass/
+ *
+ * Developed by @fabiophms
+ * 2011-2013
+ */
 
 body {line-height:1.5em;text-shadow: #ececec 0px 1px 0px;overflow:hidden;margin-top:0px;}
 
@@ -16,15 +16,26 @@ img, img:hover {height:16px; width:16px; vertical-align:-3px; margin:0px 7px}
 input {border:1px solid #CCC; background-color: #EEE;}
 	input.host {background-color:#FFF;font-size:10px;min-height:22px;}
 
-input, button {width:111px;}
+input {width:111px;}
+
+button {width:113px;}
 
 hr {border-width:0px; background-color: #DDD; height: 1px;}
 
 td, button, input {font-family:"trebuchet MS",'Lucida Sans Unicode',Tahoma,Arial,Sans-Serif; font-size:12px; white-space: nowrap;}
 	
-.doublecheck {color: #777;}
+.gray {color: #777;}
 
 .menu {opacity:0.5; /*-webkit-transition:all 0.4s ease-in-out;*/ cursor:pointer;}
 	.menu:hover {opacity:1;}
 
 .label {text-align:right; min-width:90px;}
+
+#tr_msg td {color: #A66; padding-top: 10px;
+
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+
+}

@@ -8,12 +8,11 @@
 
 "use strict";
 
-var VERSION = "1.15",
-	ID = (Math.random() * (new Date()).getTime());
+var VERSION = "1.16";
 
 var track = {
 	send: function(src) {
-		(new Image()).src = ("https://google-analytics.com/collect?v=1&z=0&tid=UA-17169655-9&an=My%20Password&av=" + VERSION + "&cid=" + ID + src);
+		(new Image()).src = ("https://google-analytics.com/collect?v=1&z=0&tid=UA-17169655-9&an=My%20Password&av=" + VERSION + "&cid=" + track.id() + src);
 	},
 
 	log: function(tag) {
@@ -22,6 +21,19 @@ var track = {
 
 	error: function(msg, fatal) {
 		track.send("&t=exception&exd=" + encodeURIComponent(msg) + (fatal ? "&exf=0" : ""));
+	},
+
+	id: function() {
+		var id = localStorage.getItem("googleAnalyticsAnonymousId");
+		if (!id) {
+			id = (Math.random() * (new Date()).getTime());
+			localStorage.setItem('googleAnalyticsAnonymousId', id);
+		}
+
+		track.id = function() {
+			return id;
+		};
+		return id;
 	}
 };
 
@@ -113,6 +125,7 @@ function MENU() {
 			(msg.getElementsByTagName("td")[0]).textContent = chrome.i18n.getMessage("wrong_key_check");
 			msg.style.display = "table-row";
 			this.field2.value = "";
+			this.field2.focus();
 
 			track.log("/alert/wrongKeyCheck");
 		} else if (f1 || (this.enableDoubleCheck && f1 === f2)) {
