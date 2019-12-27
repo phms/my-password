@@ -15,9 +15,15 @@ My Password uses a hash algorithm that combines your master password with the we
 This plugin runs totally in your browser. Nothing is stored or transmitted, so it can be used on multiple computers, public or not.
 
 
+**Web/Mobile Site**
 
-Installation
-------------
+- https://phms.com.br/
+
+
+
+Installation (out of date)
+---------------------------
+
 
 **Mozilla Firefox**
 
@@ -29,16 +35,6 @@ Installation
 - https://chrome.google.com/webstore/detail/keypass-4-all/pmghhmfnbnkdhlpoejoolfpbebpgmjpg
 
 
-**Mobile Site**
-
-- http://phms.com.br/keypass4all
-
-
-
-Mozilla Firefox
----------------
-
-- Source code: https://builder.addons.mozilla.org/package/31435/
 
 
 
